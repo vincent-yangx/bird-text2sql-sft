@@ -216,3 +216,23 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Datasets and databases
+bird_data/
+data/
+*.zip
+*.sqlite
+
+# Secrets
+.env
+
+# Python and Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Training outputs
+wandb/
+outputs/
+checkpoints/
