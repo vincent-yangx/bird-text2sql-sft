@@ -1,0 +1,106 @@
+{
+  "experiment": "sft_no_evidence",
+  "model_type": "sft",
+  "use_evidence": false,
+  "evaluation_size": 500,
+  "unique_databases": 11,
+  "valid_sql_rate": 0.9,
+  "execution_accuracy": 0.27,
+  "normalized_exact_match_rate": 0.07,
+  "pipeline_error_count": 0,
+  "average_input_tokens": 939.96,
+  "average_output_tokens": 58.906,
+  "average_generation_seconds": 4.066422598173986,
+  "median_generation_seconds": 3.917719957999907,
+  "total_generation_seconds": 2033.2112990869932,
+  "dataset_sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
+  "run_fingerprint": "60fec81af73e39a68d7ce6f580fa78f307706a440a55450f3361f215c6bee868",
+  "by_difficulty": [
+    {
+      "difficulty": "challenging",
+      "count": 102,
+      "execution_accuracy": 0.13725490196078433,
+      "valid_sql_rate": 0.8725490196078431
+    },
+    {
+      "difficulty": "moderate",
+      "count": 250,
+      "execution_accuracy": 0.196,
+      "valid_sql_rate": 0.872
+    },
+    {
+      "difficulty": "simple",
+      "count": 148,
+      "execution_accuracy": 0.4864864864864865,
+      "valid_sql_rate": 0.9662162162162162
+    }
+  ],
+  "by_database": [
+    {
+      "db_id": "california_schools",
+      "count": 30,
+      "execution_accuracy": 0.1,
+      "valid_sql_rate": 0.9
+    },
+    {
+      "db_id": "card_games",
+      "count": 52,
+      "execution_accuracy": 0.23076923076923078,
+      "valid_sql_rate": 0.8846153846153846
+    },
+    {
+      "db_id": "codebase_community",
+      "count": 49,
+      "execution_accuracy": 0.4489795918367347,
+      "valid_sql_rate": 0.8775510204081632
+    },
+    {
+      "db_id": "debit_card_specializing",
+      "count": 30,
+      "execution_accuracy": 0.16666666666666666,
+      "valid_sql_rate": 0.9333333333333333
+    },
+    {
+      "db_id": "european_football_2",
+      "count": 51,
+      "execution_accuracy": 0.35294117647058826,
+      "valid_sql_rate": 0.9019607843137255
+    },
+    {
+      "db_id": "financial",
+      "count": 32,
+      "execution_accuracy": 0.0625,
+      "valid_sql_rate": 0.6875
+    },
+    {
+      "db_id": "formula_1",
+      "count": 66,
+      "execution_accuracy": 0.25757575757575757,
+      "valid_sql_rate": 0.8939393939393939
+    },
+    {
+      "db_id": "student_club",
+      "count": 48,
+      "execution_accuracy": 0.5208333333333334,
+      "valid_sql_rate": 0.9166666666666666
+    },
+    {
+      "db_id": "superhero",
+      "count": 52,
+      "execution_accuracy": 0.4230769230769231,
+      "valid_sql_rate": 0.9807692307692307
+    },
+    {
+      "db_id": "thrombosis_prediction",
+      "count": 50,
+      "execution_accuracy": 0.08,
+      "valid_sql_rate": 0.96
+    },
+    {
+      "db_id": "toxicology",
+      "count": 40,
+      "execution_accuracy": 0.125,
+      "valid_sql_rate": 0.9
+    }
+  ]
+}
