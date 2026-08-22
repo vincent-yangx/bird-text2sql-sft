@@ -1,5 +1,0 @@
-effect,control,treatment,evaluation_size,control_ex,treatment_ex,absolute_delta,relative_error_reduction,improved,regressed,net_improvement,paired_bootstrap_95_ci_low,paired_bootstrap_95_ci_high,mcnemar_exact_p_value
-evidence_effect_base,baseline_no_evidence,baseline_with_evidence,500,0.27,0.504,0.234,0.32054794520547947,126,9,117,0.194,0.276,1.5435801604555014e-27
-evidence_effect_sft,sft_no_evidence,sft_with_evidence,500,0.27,0.476,0.206,0.2821917808219178,117,14,103,0.164,0.246,2.0375780935133176e-21
-sft_effect_no_evidence,baseline_no_evidence,sft_no_evidence,500,0.27,0.27,0.0,0.0,31,31,0,-0.032,0.03,1.0
-sft_effect_with_evidence,baseline_with_evidence,sft_with_evidence,500,0.504,0.476,-0.028,-0.056451612903225805,33,47,-14,-0.064,0.008,0.1456354544029827

@@ -1,0 +1,161 @@
+{
+  "version": "bird_targeted_sft_v1",
+  "created_with": "BIRD_Targeted_SFT_Data_Construction_v1.ipynb",
+  "data_source_rule": "Outputs contain BIRD train-split records only. MiniDev500 contributed aggregate capability weights but no training rows.",
+  "inputs": {
+    "train_path": "/content/drive/MyDrive/bird-text2sql-sft/processed/train_sft_v2.jsonl",
+    "train_sha256": "608c1081dd5045735f7f338d18bee3742c7d9c2241fd2c350492bc6ecd2a85ec",
+    "validation_path": "/content/drive/MyDrive/bird-text2sql-sft/processed/validation_sft_v2.jsonl",
+    "validation_sha256": "b3d6ba724d3135c4653fd36369b0c7052cca231b09e02b6b436a739cf41ea68e",
+    "split_metadata_path": "/content/drive/MyDrive/bird-text2sql-sft/processed/split_metadata_v2.json",
+    "split_metadata_sha256": "117124e6e2244ddcff1ff901548cf5ebd182f36b7e5e5e5bc760ca5530e2a773",
+    "v3_summary_path": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/failure_mode_analysis_summary_v3.json",
+    "v3_summary_sha256": "16468826262b69d14838701867a94195ede4f66862d1873b950f457d7a26fdff"
+  },
+  "sampling": {
+    "seed": 20260816,
+    "output_train_prompts": 5825,
+    "targeted_share": 0.65,
+    "general_replay_share": 0.35,
+    "family_weights": {
+      "schema_relationship": 0.4,
+      "predicate_evidence": 0.22,
+      "computation_logic": 0.2,
+      "result_structure": 0.18
+    },
+    "family_quotas": {
+      "schema_relationship": 1514,
+      "predicate_evidence": 833,
+      "computation_logic": 757,
+      "result_structure": 682
+    },
+    "max_source_occurrences": 2,
+    "unique_source_count": 4531,
+    "unique_source_coverage": 0.7778540772532189,
+    "force_evidence_for_targeted": false,
+    "original_train_evidence_rate": 0.49991416309012876,
+    "output_evidence_rate": 0.5091845493562231,
+    "maximum_allowed_evidence_rate_shift": 0.04
+  },
+  "split_integrity": {
+    "split_method": "database_level_90_10",
+    "train_source_count_original": 5825,
+    "validation_source_count_original": 776,
+    "train_validation_source_overlap": 0,
+    "training_database_ids": [
+      "address",
+      "airline",
+      "app_store",
+      "authors",
+      "beer_factory",
+      "bike_share_1",
+      "book_publishing_company",
+      "car_retails",
+      "cars",
+      "chicago_crime",
+      "citeseer",
+      "codebase_comments",
+      "coinmarketcap",
+      "college_completion",
+      "cookbook",
+      "craftbeer",
+      "cs_semester",
+      "disney",
+      "donor",
+      "european_football_1",
+      "food_inspection_2",
+      "genes",
+      "hockey",
+      "human_resources",
+      "ice_hockey_draft",
+      "image_and_language",
+      "language_corpus",
+      "legislator",
+      "mental_health_survey",
+      "menu",
+      "mondial_geo",
+      "movie",
+      "movie_platform",
+      "movielens",
+      "movies_4",
+      "music_platform_2",
+      "music_tracker",
+      "olympics",
+      "professional_basketball",
+      "public_review_platform",
+      "regional_sales",
+      "restaurant",
+      "retail_complains",
+      "retail_world",
+      "retails",
+      "sales_in_weather",
+      "shakespeare",
+      "shipping",
+      "shooting",
+      "simpson_episodes",
+      "soccer_2016",
+      "social_media",
+      "software_company",
+      "student_loan",
+      "synthea",
+      "talkingdata",
+      "trains",
+      "university",
+      "video_games",
+      "works_cycles",
+      "world",
+      "world_development_indicators"
+    ],
+    "validation_database_ids": [
+      "books",
+      "computer_student",
+      "food_inspection",
+      "law_episode",
+      "movie_3",
+      "sales",
+      "superstore"
+    ]
+  },
+  "outputs": {
+    "train_targeted_sft_v1.jsonl": {
+      "path": "/content/drive/MyDrive/bird-text2sql-sft/processed/targeted_sft_v1/train_targeted_sft_v1.jsonl",
+      "sha256": "130acd76b8c507d4b3c49d58dd70bad460585290eaa6af5e9399c0ecb73e7bd2",
+      "size_bytes": 34841282
+    },
+    "validation_general_sft_v1.jsonl": {
+      "path": "/content/drive/MyDrive/bird-text2sql-sft/processed/targeted_sft_v1/validation_general_sft_v1.jsonl",
+      "sha256": "b3d6ba724d3135c4653fd36369b0c7052cca231b09e02b6b436a739cf41ea68e",
+      "size_bytes": 6701457
+    },
+    "validation_targeted_sft_v1.jsonl": {
+      "path": "/content/drive/MyDrive/bird-text2sql-sft/processed/targeted_sft_v1/validation_targeted_sft_v1.jsonl",
+      "sha256": "d5e60523acd09ee90d0e0b9f03b01943039ccaf78fa35a02bee4fc43b799a818",
+      "size_bytes": 3726753
+    },
+    "train_selection_index_v1.csv": {
+      "path": "/content/drive/MyDrive/bird-text2sql-sft/processed/targeted_sft_v1/train_selection_index_v1.csv",
+      "sha256": "a3af5f95510aba05ee13a7ec1cc937defb1d796539bdedf0e00cb3fcfac44bb7",
+      "size_bytes": 1004964
+    },
+    "validation_targeted_index_v1.csv": {
+      "path": "/content/drive/MyDrive/bird-text2sql-sft/processed/targeted_sft_v1/validation_targeted_index_v1.csv",
+      "sha256": "328dfc576bde12d945f726c843f4ffbbd9718e225947645c045fb4f1f30a8fe6",
+      "size_bytes": 86937
+    },
+    "targeted_family_summary_v1.csv": {
+      "path": "/content/drive/MyDrive/bird-text2sql-sft/processed/targeted_sft_v1/targeted_family_summary_v1.csv",
+      "sha256": "0625333ef4b4f784039de9fd1031b1267db487359e574590e18e44f5d3a9cf29",
+      "size_bytes": 602
+    },
+    "targeted_database_summary_v1.csv": {
+      "path": "/content/drive/MyDrive/bird-text2sql-sft/processed/targeted_sft_v1/targeted_database_summary_v1.csv",
+      "sha256": "ebc9ab865a8aaa9414c95d5a7a27584d48848f692e88c5baf280e13ce0df00ec",
+      "size_bytes": 5757
+    },
+    "targeted_complexity_summary_v1.csv": {
+      "path": "/content/drive/MyDrive/bird-text2sql-sft/processed/targeted_sft_v1/targeted_complexity_summary_v1.csv",
+      "sha256": "68f935ac64923511232fd629974df026c72b312308d6b658cfd45d9ffa649b68",
+      "size_bytes": 200
+    }
+  }
+}

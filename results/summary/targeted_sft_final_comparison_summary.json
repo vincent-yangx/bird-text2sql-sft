@@ -1,0 +1,1334 @@
+{
+  "dataset": {
+    "id": "birdsql/bird_mini_dev",
+    "revision": "f65faf4ae3b638c1fa6df1d3370c8d92c8366301",
+    "split": "mini_dev_sqlite",
+    "size": 500,
+    "unique_databases": 11,
+    "sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
+    "status": "iterative development benchmark; not an untouched blind test"
+  },
+  "targeted_training": {
+    "run_name": "qwen2.5-coder-7b-bf16-lora-targeted-sft-v1-lr2e-5-len8192",
+    "selected_checkpoint_step": 600,
+    "selected_checkpoint_macro_ex": 0.59,
+    "best_loss_checkpoint": "/content/drive/MyDrive/bird-text2sql-sft/training/qwen2.5-coder-7b-bf16-lora-targeted-sft-v1-lr2e-5-len8192/checkpoints/checkpoint-200",
+    "best_loss_metric": 0.11163096129894257,
+    "training_peak_gpu_memory_gb": 24.29136323928833,
+    "evaluation_peak_allocated_gpu_memory_gb": 14.499889373779297
+  },
+  "candidate_protocol": {
+    "num_candidates": 5,
+    "candidate_1": "greedy; used for EX@1",
+    "candidates_2_to_5": {
+      "method": "seeded multinomial sampling",
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "seed_rule": "SEED + position"
+    },
+    "oracle_at_k": "at least one execution-correct SQL among candidates 1..K"
+  },
+  "experiments": {
+    "baseline_no_evidence": {
+      "experiment": "baseline_no_evidence",
+      "model_type": "baseline",
+      "use_evidence": false,
+      "evaluation_size": 500,
+      "unique_databases": 11,
+      "ex_at_1": 0.27,
+      "oracle_at_3": 0.326,
+      "oracle_at_5": 0.366,
+      "oracle_gain_3_vs_1": 0.055999999999999994,
+      "oracle_gain_5_vs_1": 0.09599999999999997,
+      "valid_sql_rate_at_1": 0.86,
+      "average_candidate_valid_rate": 0.8432000000000001,
+      "normalized_exact_match_rate_at_1": 0.064,
+      "pipeline_error_count": 0,
+      "average_input_tokens": 939.96,
+      "average_generation_seconds_per_example": 4.088727877810001,
+      "dataset_sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
+      "by_difficulty": [
+        {
+          "difficulty": "challenging",
+          "count": 102,
+          "ex_at_1": 0.11764705882352941,
+          "oracle_at_3": 0.16666666666666666,
+          "oracle_at_5": 0.20588235294117646
+        },
+        {
+          "difficulty": "moderate",
+          "count": 250,
+          "ex_at_1": 0.224,
+          "oracle_at_3": 0.284,
+          "oracle_at_5": 0.32
+        },
+        {
+          "difficulty": "simple",
+          "count": 148,
+          "ex_at_1": 0.4527027027027027,
+          "oracle_at_3": 0.5067567567567568,
+          "oracle_at_5": 0.5540540540540541
+        }
+      ],
+      "by_database": [
+        {
+          "db_id": "california_schools",
+          "count": 30,
+          "ex_at_1": 0.1,
+          "oracle_at_3": 0.1,
+          "oracle_at_5": 0.1
+        },
+        {
+          "db_id": "card_games",
+          "count": 52,
+          "ex_at_1": 0.19230769230769232,
+          "oracle_at_3": 0.28846153846153844,
+          "oracle_at_5": 0.34615384615384615
+        },
+        {
+          "db_id": "codebase_community",
+          "count": 49,
+          "ex_at_1": 0.3469387755102041,
+          "oracle_at_3": 0.40816326530612246,
+          "oracle_at_5": 0.46938775510204084
+        },
+        {
+          "db_id": "debit_card_specializing",
+          "count": 30,
+          "ex_at_1": 0.2,
+          "oracle_at_3": 0.2,
+          "oracle_at_5": 0.23333333333333334
+        },
+        {
+          "db_id": "european_football_2",
+          "count": 51,
+          "ex_at_1": 0.35294117647058826,
+          "oracle_at_3": 0.4117647058823529,
+          "oracle_at_5": 0.47058823529411764
+        },
+        {
+          "db_id": "financial",
+          "count": 32,
+          "ex_at_1": 0.03125,
+          "oracle_at_3": 0.09375,
+          "oracle_at_5": 0.09375
+        },
+        {
+          "db_id": "formula_1",
+          "count": 66,
+          "ex_at_1": 0.3181818181818182,
+          "oracle_at_3": 0.3333333333333333,
+          "oracle_at_5": 0.36363636363636365
+        },
+        {
+          "db_id": "student_club",
+          "count": 48,
+          "ex_at_1": 0.5416666666666666,
+          "oracle_at_3": 0.5833333333333334,
+          "oracle_at_5": 0.6458333333333334
+        },
+        {
+          "db_id": "superhero",
+          "count": 52,
+          "ex_at_1": 0.5,
+          "oracle_at_3": 0.6153846153846154,
+          "oracle_at_5": 0.6730769230769231
+        },
+        {
+          "db_id": "thrombosis_prediction",
+          "count": 50,
+          "ex_at_1": 0.06,
+          "oracle_at_3": 0.18,
+          "oracle_at_5": 0.2
+        },
+        {
+          "db_id": "toxicology",
+          "count": 40,
+          "ex_at_1": 0.1,
+          "oracle_at_3": 0.1,
+          "oracle_at_5": 0.125
+        }
+      ]
+    },
+    "baseline_with_evidence": {
+      "experiment": "baseline_with_evidence",
+      "model_type": "baseline",
+      "use_evidence": true,
+      "evaluation_size": 500,
+      "unique_databases": 11,
+      "ex_at_1": 0.504,
+      "oracle_at_3": 0.558,
+      "oracle_at_5": 0.608,
+      "oracle_gain_3_vs_1": 0.05400000000000005,
+      "oracle_gain_5_vs_1": 0.10399999999999998,
+      "valid_sql_rate_at_1": 0.894,
+      "average_candidate_valid_rate": 0.8652000000000001,
+      "normalized_exact_match_rate_at_1": 0.094,
+      "pipeline_error_count": 0,
+      "average_input_tokens": 971.816,
+      "average_generation_seconds_per_example": 4.179855301115983,
+      "dataset_sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
+      "by_difficulty": [
+        {
+          "difficulty": "challenging",
+          "count": 102,
+          "ex_at_1": 0.3333333333333333,
+          "oracle_at_3": 0.4117647058823529,
+          "oracle_at_5": 0.4803921568627451
+        },
+        {
+          "difficulty": "moderate",
+          "count": 250,
+          "ex_at_1": 0.476,
+          "oracle_at_3": 0.52,
+          "oracle_at_5": 0.572
+        },
+        {
+          "difficulty": "simple",
+          "count": 148,
+          "ex_at_1": 0.668918918918919,
+          "oracle_at_3": 0.722972972972973,
+          "oracle_at_5": 0.7567567567567568
+        }
+      ],
+      "by_database": [
+        {
+          "db_id": "california_schools",
+          "count": 30,
+          "ex_at_1": 0.2,
+          "oracle_at_3": 0.26666666666666666,
+          "oracle_at_5": 0.4
+        },
+        {
+          "db_id": "card_games",
+          "count": 52,
+          "ex_at_1": 0.5961538461538461,
+          "oracle_at_3": 0.6346153846153846,
+          "oracle_at_5": 0.6538461538461539
+        },
+        {
+          "db_id": "codebase_community",
+          "count": 49,
+          "ex_at_1": 0.40816326530612246,
+          "oracle_at_3": 0.4897959183673469,
+          "oracle_at_5": 0.5714285714285714
+        },
+        {
+          "db_id": "debit_card_specializing",
+          "count": 30,
+          "ex_at_1": 0.4666666666666667,
+          "oracle_at_3": 0.4666666666666667,
+          "oracle_at_5": 0.5666666666666667
+        },
+        {
+          "db_id": "european_football_2",
+          "count": 51,
+          "ex_at_1": 0.6078431372549019,
+          "oracle_at_3": 0.6666666666666666,
+          "oracle_at_5": 0.7058823529411765
+        },
+        {
+          "db_id": "financial",
+          "count": 32,
+          "ex_at_1": 0.375,
+          "oracle_at_3": 0.5,
+          "oracle_at_5": 0.5625
+        },
+        {
+          "db_id": "formula_1",
+          "count": 66,
+          "ex_at_1": 0.42424242424242425,
+          "oracle_at_3": 0.42424242424242425,
+          "oracle_at_5": 0.5303030303030303
+        },
+        {
+          "db_id": "student_club",
+          "count": 48,
+          "ex_at_1": 0.75,
+          "oracle_at_3": 0.7916666666666666,
+          "oracle_at_5": 0.7916666666666666
+        },
+        {
+          "db_id": "superhero",
+          "count": 52,
+          "ex_at_1": 0.7307692307692307,
+          "oracle_at_3": 0.8269230769230769,
+          "oracle_at_5": 0.8269230769230769
+        },
+        {
+          "db_id": "thrombosis_prediction",
+          "count": 50,
+          "ex_at_1": 0.48,
+          "oracle_at_3": 0.52,
+          "oracle_at_5": 0.52
+        },
+        {
+          "db_id": "toxicology",
+          "count": 40,
+          "ex_at_1": 0.3,
+          "oracle_at_3": 0.375,
+          "oracle_at_5": 0.425
+        }
+      ]
+    },
+    "sft_no_evidence": {
+      "experiment": "sft_no_evidence",
+      "model_type": "sft",
+      "use_evidence": false,
+      "evaluation_size": 500,
+      "unique_databases": 11,
+      "ex_at_1": 0.27,
+      "oracle_at_3": 0.36,
+      "oracle_at_5": 0.398,
+      "oracle_gain_3_vs_1": 0.08999999999999997,
+      "oracle_gain_5_vs_1": 0.128,
+      "valid_sql_rate_at_1": 0.9,
+      "average_candidate_valid_rate": 0.8584,
+      "normalized_exact_match_rate_at_1": 0.07,
+      "pipeline_error_count": 0,
+      "average_input_tokens": 939.96,
+      "average_generation_seconds_per_example": 9.20920784073402,
+      "dataset_sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
+      "by_difficulty": [
+        {
+          "difficulty": "challenging",
+          "count": 102,
+          "ex_at_1": 0.13725490196078433,
+          "oracle_at_3": 0.20588235294117646,
+          "oracle_at_5": 0.22549019607843138
+        },
+        {
+          "difficulty": "moderate",
+          "count": 250,
+          "ex_at_1": 0.196,
+          "oracle_at_3": 0.292,
+          "oracle_at_5": 0.344
+        },
+        {
+          "difficulty": "simple",
+          "count": 148,
+          "ex_at_1": 0.4864864864864865,
+          "oracle_at_3": 0.581081081081081,
+          "oracle_at_5": 0.6081081081081081
+        }
+      ],
+      "by_database": [
+        {
+          "db_id": "california_schools",
+          "count": 30,
+          "ex_at_1": 0.1,
+          "oracle_at_3": 0.13333333333333333,
+          "oracle_at_5": 0.13333333333333333
+        },
+        {
+          "db_id": "card_games",
+          "count": 52,
+          "ex_at_1": 0.23076923076923078,
+          "oracle_at_3": 0.3076923076923077,
+          "oracle_at_5": 0.38461538461538464
+        },
+        {
+          "db_id": "codebase_community",
+          "count": 49,
+          "ex_at_1": 0.4489795918367347,
+          "oracle_at_3": 0.5102040816326531,
+          "oracle_at_5": 0.5306122448979592
+        },
+        {
+          "db_id": "debit_card_specializing",
+          "count": 30,
+          "ex_at_1": 0.16666666666666666,
+          "oracle_at_3": 0.26666666666666666,
+          "oracle_at_5": 0.26666666666666666
+        },
+        {
+          "db_id": "european_football_2",
+          "count": 51,
+          "ex_at_1": 0.35294117647058826,
+          "oracle_at_3": 0.49019607843137253,
+          "oracle_at_5": 0.5294117647058824
+        },
+        {
+          "db_id": "financial",
+          "count": 32,
+          "ex_at_1": 0.0625,
+          "oracle_at_3": 0.09375,
+          "oracle_at_5": 0.125
+        },
+        {
+          "db_id": "formula_1",
+          "count": 66,
+          "ex_at_1": 0.25757575757575757,
+          "oracle_at_3": 0.3939393939393939,
+          "oracle_at_5": 0.4393939393939394
+        },
+        {
+          "db_id": "student_club",
+          "count": 48,
+          "ex_at_1": 0.5208333333333334,
+          "oracle_at_3": 0.625,
+          "oracle_at_5": 0.6458333333333334
+        },
+        {
+          "db_id": "superhero",
+          "count": 52,
+          "ex_at_1": 0.4230769230769231,
+          "oracle_at_3": 0.5769230769230769,
+          "oracle_at_5": 0.6730769230769231
+        },
+        {
+          "db_id": "thrombosis_prediction",
+          "count": 50,
+          "ex_at_1": 0.08,
+          "oracle_at_3": 0.16,
+          "oracle_at_5": 0.2
+        },
+        {
+          "db_id": "toxicology",
+          "count": 40,
+          "ex_at_1": 0.125,
+          "oracle_at_3": 0.125,
+          "oracle_at_5": 0.125
+        }
+      ]
+    },
+    "sft_with_evidence": {
+      "experiment": "sft_with_evidence",
+      "model_type": "sft",
+      "use_evidence": true,
+      "evaluation_size": 500,
+      "unique_databases": 11,
+      "ex_at_1": 0.476,
+      "oracle_at_3": 0.562,
+      "oracle_at_5": 0.6,
+      "oracle_gain_3_vs_1": 0.08600000000000008,
+      "oracle_gain_5_vs_1": 0.124,
+      "valid_sql_rate_at_1": 0.91,
+      "average_candidate_valid_rate": 0.8592000000000001,
+      "normalized_exact_match_rate_at_1": 0.1,
+      "pipeline_error_count": 0,
+      "average_input_tokens": 971.816,
+      "average_generation_seconds_per_example": 9.305499911139934,
+      "dataset_sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
+      "by_difficulty": [
+        {
+          "difficulty": "challenging",
+          "count": 102,
+          "ex_at_1": 0.3333333333333333,
+          "oracle_at_3": 0.46078431372549017,
+          "oracle_at_5": 0.5
+        },
+        {
+          "difficulty": "moderate",
+          "count": 250,
+          "ex_at_1": 0.408,
+          "oracle_at_3": 0.5,
+          "oracle_at_5": 0.544
+        },
+        {
+          "difficulty": "simple",
+          "count": 148,
+          "ex_at_1": 0.6891891891891891,
+          "oracle_at_3": 0.7364864864864865,
+          "oracle_at_5": 0.7635135135135135
+        }
+      ],
+      "by_database": [
+        {
+          "db_id": "california_schools",
+          "count": 30,
+          "ex_at_1": 0.2,
+          "oracle_at_3": 0.3,
+          "oracle_at_5": 0.3333333333333333
+        },
+        {
+          "db_id": "card_games",
+          "count": 52,
+          "ex_at_1": 0.46153846153846156,
+          "oracle_at_3": 0.5576923076923077,
+          "oracle_at_5": 0.6153846153846154
+        },
+        {
+          "db_id": "codebase_community",
+          "count": 49,
+          "ex_at_1": 0.46938775510204084,
+          "oracle_at_3": 0.5510204081632653,
+          "oracle_at_5": 0.5918367346938775
+        },
+        {
+          "db_id": "debit_card_specializing",
+          "count": 30,
+          "ex_at_1": 0.43333333333333335,
+          "oracle_at_3": 0.4666666666666667,
+          "oracle_at_5": 0.5
+        },
+        {
+          "db_id": "european_football_2",
+          "count": 51,
+          "ex_at_1": 0.6666666666666666,
+          "oracle_at_3": 0.6862745098039216,
+          "oracle_at_5": 0.6862745098039216
+        },
+        {
+          "db_id": "financial",
+          "count": 32,
+          "ex_at_1": 0.28125,
+          "oracle_at_3": 0.40625,
+          "oracle_at_5": 0.4375
+        },
+        {
+          "db_id": "formula_1",
+          "count": 66,
+          "ex_at_1": 0.3787878787878788,
+          "oracle_at_3": 0.45454545454545453,
+          "oracle_at_5": 0.5454545454545454
+        },
+        {
+          "db_id": "student_club",
+          "count": 48,
+          "ex_at_1": 0.7291666666666666,
+          "oracle_at_3": 0.7916666666666666,
+          "oracle_at_5": 0.7916666666666666
+        },
+        {
+          "db_id": "superhero",
+          "count": 52,
+          "ex_at_1": 0.6923076923076923,
+          "oracle_at_3": 0.8269230769230769,
+          "oracle_at_5": 0.8653846153846154
+        },
+        {
+          "db_id": "thrombosis_prediction",
+          "count": 50,
+          "ex_at_1": 0.44,
+          "oracle_at_3": 0.52,
+          "oracle_at_5": 0.58
+        },
+        {
+          "db_id": "toxicology",
+          "count": 40,
+          "ex_at_1": 0.275,
+          "oracle_at_3": 0.425,
+          "oracle_at_5": 0.425
+        }
+      ]
+    },
+    "targeted_sft_no_evidence": {
+      "experiment": "targeted_sft_no_evidence",
+      "model_type": "targeted_sft",
+      "use_evidence": false,
+      "evaluation_size": 500,
+      "unique_databases": 11,
+      "ex_at_1": 0.282,
+      "oracle_at_3": 0.36,
+      "oracle_at_5": 0.408,
+      "oracle_gain_3_vs_1": 0.07800000000000001,
+      "oracle_gain_5_vs_1": 0.126,
+      "valid_sql_rate_at_1": 0.914,
+      "average_candidate_valid_rate": 0.8548,
+      "normalized_exact_match_rate_at_1": 0.072,
+      "pipeline_error_count": 0,
+      "average_input_tokens": 939.96,
+      "average_generation_seconds_per_example": 9.290679445570023,
+      "dataset_sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
+      "by_difficulty": [
+        {
+          "difficulty": "challenging",
+          "count": 102,
+          "ex_at_1": 0.14705882352941177,
+          "oracle_at_3": 0.20588235294117646,
+          "oracle_at_5": 0.22549019607843138
+        },
+        {
+          "difficulty": "moderate",
+          "count": 250,
+          "ex_at_1": 0.208,
+          "oracle_at_3": 0.292,
+          "oracle_at_5": 0.368
+        },
+        {
+          "difficulty": "simple",
+          "count": 148,
+          "ex_at_1": 0.5,
+          "oracle_at_3": 0.581081081081081,
+          "oracle_at_5": 0.6013513513513513
+        }
+      ],
+      "by_database": [
+        {
+          "db_id": "california_schools",
+          "count": 30,
+          "ex_at_1": 0.1,
+          "oracle_at_3": 0.13333333333333333,
+          "oracle_at_5": 0.13333333333333333
+        },
+        {
+          "db_id": "card_games",
+          "count": 52,
+          "ex_at_1": 0.21153846153846154,
+          "oracle_at_3": 0.2692307692307692,
+          "oracle_at_5": 0.34615384615384615
+        },
+        {
+          "db_id": "codebase_community",
+          "count": 49,
+          "ex_at_1": 0.46938775510204084,
+          "oracle_at_3": 0.5102040816326531,
+          "oracle_at_5": 0.5306122448979592
+        },
+        {
+          "db_id": "debit_card_specializing",
+          "count": 30,
+          "ex_at_1": 0.2,
+          "oracle_at_3": 0.23333333333333334,
+          "oracle_at_5": 0.26666666666666666
+        },
+        {
+          "db_id": "european_football_2",
+          "count": 51,
+          "ex_at_1": 0.39215686274509803,
+          "oracle_at_3": 0.49019607843137253,
+          "oracle_at_5": 0.5686274509803921
+        },
+        {
+          "db_id": "financial",
+          "count": 32,
+          "ex_at_1": 0.03125,
+          "oracle_at_3": 0.0625,
+          "oracle_at_5": 0.09375
+        },
+        {
+          "db_id": "formula_1",
+          "count": 66,
+          "ex_at_1": 0.2878787878787879,
+          "oracle_at_3": 0.36363636363636365,
+          "oracle_at_5": 0.42424242424242425
+        },
+        {
+          "db_id": "student_club",
+          "count": 48,
+          "ex_at_1": 0.5625,
+          "oracle_at_3": 0.625,
+          "oracle_at_5": 0.6875
+        },
+        {
+          "db_id": "superhero",
+          "count": 52,
+          "ex_at_1": 0.36538461538461536,
+          "oracle_at_3": 0.6153846153846154,
+          "oracle_at_5": 0.7115384615384616
+        },
+        {
+          "db_id": "thrombosis_prediction",
+          "count": 50,
+          "ex_at_1": 0.14,
+          "oracle_at_3": 0.24,
+          "oracle_at_5": 0.26
+        },
+        {
+          "db_id": "toxicology",
+          "count": 40,
+          "ex_at_1": 0.125,
+          "oracle_at_3": 0.125,
+          "oracle_at_5": 0.125
+        }
+      ]
+    },
+    "targeted_sft_with_evidence": {
+      "experiment": "targeted_sft_with_evidence",
+      "model_type": "targeted_sft",
+      "use_evidence": true,
+      "evaluation_size": 500,
+      "unique_databases": 11,
+      "ex_at_1": 0.44,
+      "oracle_at_3": 0.554,
+      "oracle_at_5": 0.596,
+      "oracle_gain_3_vs_1": 0.11400000000000005,
+      "oracle_gain_5_vs_1": 0.15599999999999997,
+      "valid_sql_rate_at_1": 0.888,
+      "average_candidate_valid_rate": 0.8576,
+      "normalized_exact_match_rate_at_1": 0.096,
+      "pipeline_error_count": 0,
+      "average_input_tokens": 971.816,
+      "average_generation_seconds_per_example": 9.436472104573998,
+      "dataset_sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
+      "by_difficulty": [
+        {
+          "difficulty": "challenging",
+          "count": 102,
+          "ex_at_1": 0.30392156862745096,
+          "oracle_at_3": 0.43137254901960786,
+          "oracle_at_5": 0.4803921568627451
+        },
+        {
+          "difficulty": "moderate",
+          "count": 250,
+          "ex_at_1": 0.376,
+          "oracle_at_3": 0.508,
+          "oracle_at_5": 0.548
+        },
+        {
+          "difficulty": "simple",
+          "count": 148,
+          "ex_at_1": 0.6418918918918919,
+          "oracle_at_3": 0.7162162162162162,
+          "oracle_at_5": 0.7567567567567568
+        }
+      ],
+      "by_database": [
+        {
+          "db_id": "california_schools",
+          "count": 30,
+          "ex_at_1": 0.16666666666666666,
+          "oracle_at_3": 0.3,
+          "oracle_at_5": 0.4
+        },
+        {
+          "db_id": "card_games",
+          "count": 52,
+          "ex_at_1": 0.4423076923076923,
+          "oracle_at_3": 0.5576923076923077,
+          "oracle_at_5": 0.5769230769230769
+        },
+        {
+          "db_id": "codebase_community",
+          "count": 49,
+          "ex_at_1": 0.46938775510204084,
+          "oracle_at_3": 0.5714285714285714,
+          "oracle_at_5": 0.5918367346938775
+        },
+        {
+          "db_id": "debit_card_specializing",
+          "count": 30,
+          "ex_at_1": 0.36666666666666664,
+          "oracle_at_3": 0.4666666666666667,
+          "oracle_at_5": 0.5666666666666667
+        },
+        {
+          "db_id": "european_football_2",
+          "count": 51,
+          "ex_at_1": 0.6274509803921569,
+          "oracle_at_3": 0.6470588235294118,
+          "oracle_at_5": 0.6862745098039216
+        },
+        {
+          "db_id": "financial",
+          "count": 32,
+          "ex_at_1": 0.1875,
+          "oracle_at_3": 0.34375,
+          "oracle_at_5": 0.4375
+        },
+        {
+          "db_id": "formula_1",
+          "count": 66,
+          "ex_at_1": 0.3484848484848485,
+          "oracle_at_3": 0.4696969696969697,
+          "oracle_at_5": 0.5151515151515151
+        },
+        {
+          "db_id": "student_club",
+          "count": 48,
+          "ex_at_1": 0.6875,
+          "oracle_at_3": 0.7708333333333334,
+          "oracle_at_5": 0.7916666666666666
+        },
+        {
+          "db_id": "superhero",
+          "count": 52,
+          "ex_at_1": 0.6346153846153846,
+          "oracle_at_3": 0.8461538461538461,
+          "oracle_at_5": 0.8653846153846154
+        },
+        {
+          "db_id": "thrombosis_prediction",
+          "count": 50,
+          "ex_at_1": 0.42,
+          "oracle_at_3": 0.52,
+          "oracle_at_5": 0.58
+        },
+        {
+          "db_id": "toxicology",
+          "count": 40,
+          "ex_at_1": 0.25,
+          "oracle_at_3": 0.375,
+          "oracle_at_5": 0.375
+        }
+      ]
+    }
+  },
+  "paired_effects": [
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "evidence_effect_base",
+      "control": "baseline_no_evidence",
+      "treatment": "baseline_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.27,
+      "treatment_score": 0.504,
+      "absolute_delta": 0.234,
+      "relative_error_reduction": 0.32054794520547947,
+      "improved": 126,
+      "regressed": 9,
+      "net_improvement": 117,
+      "paired_bootstrap_95_ci_low": 0.194,
+      "paired_bootstrap_95_ci_high": 0.276,
+      "mcnemar_exact_p_value": 1.5435801604555014e-27
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "evidence_effect_original_sft",
+      "control": "sft_no_evidence",
+      "treatment": "sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.27,
+      "treatment_score": 0.476,
+      "absolute_delta": 0.206,
+      "relative_error_reduction": 0.2821917808219178,
+      "improved": 117,
+      "regressed": 14,
+      "net_improvement": 103,
+      "paired_bootstrap_95_ci_low": 0.164,
+      "paired_bootstrap_95_ci_high": 0.246,
+      "mcnemar_exact_p_value": 2.0375780935133176e-21
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "evidence_effect_targeted_sft",
+      "control": "targeted_sft_no_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.282,
+      "treatment_score": 0.44,
+      "absolute_delta": 0.158,
+      "relative_error_reduction": 0.2200557103064067,
+      "improved": 96,
+      "regressed": 17,
+      "net_improvement": 79,
+      "paired_bootstrap_95_ci_low": 0.118,
+      "paired_bootstrap_95_ci_high": 0.198,
+      "mcnemar_exact_p_value": 1.4727515742257347e-14
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "original_sft_vs_base_no_evidence",
+      "control": "baseline_no_evidence",
+      "treatment": "sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.27,
+      "treatment_score": 0.27,
+      "absolute_delta": 0.0,
+      "relative_error_reduction": 0.0,
+      "improved": 31,
+      "regressed": 31,
+      "net_improvement": 0,
+      "paired_bootstrap_95_ci_low": -0.032,
+      "paired_bootstrap_95_ci_high": 0.032,
+      "mcnemar_exact_p_value": 1.0
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "original_sft_vs_base_with_evidence",
+      "control": "baseline_with_evidence",
+      "treatment": "sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.504,
+      "treatment_score": 0.476,
+      "absolute_delta": -0.028,
+      "relative_error_reduction": -0.056451612903225805,
+      "improved": 33,
+      "regressed": 47,
+      "net_improvement": -14,
+      "paired_bootstrap_95_ci_low": -0.064,
+      "paired_bootstrap_95_ci_high": 0.008,
+      "mcnemar_exact_p_value": 0.1456354544029827
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "targeted_sft_vs_base_no_evidence",
+      "control": "baseline_no_evidence",
+      "treatment": "targeted_sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.27,
+      "treatment_score": 0.282,
+      "absolute_delta": 0.012,
+      "relative_error_reduction": 0.016438356164383564,
+      "improved": 36,
+      "regressed": 30,
+      "net_improvement": 6,
+      "paired_bootstrap_95_ci_low": -0.02,
+      "paired_bootstrap_95_ci_high": 0.044,
+      "mcnemar_exact_p_value": 0.5385827752459466
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "targeted_sft_vs_base_with_evidence",
+      "control": "baseline_with_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.504,
+      "treatment_score": 0.44,
+      "absolute_delta": -0.064,
+      "relative_error_reduction": -0.12903225806451613,
+      "improved": 27,
+      "regressed": 59,
+      "net_improvement": -32,
+      "paired_bootstrap_95_ci_low": -0.1,
+      "paired_bootstrap_95_ci_high": -0.028,
+      "mcnemar_exact_p_value": 0.0007317100653124087
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "targeted_vs_original_no_evidence",
+      "control": "sft_no_evidence",
+      "treatment": "targeted_sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.27,
+      "treatment_score": 0.282,
+      "absolute_delta": 0.012,
+      "relative_error_reduction": 0.016438356164383564,
+      "improved": 18,
+      "regressed": 12,
+      "net_improvement": 6,
+      "paired_bootstrap_95_ci_low": -0.01,
+      "paired_bootstrap_95_ci_high": 0.034,
+      "mcnemar_exact_p_value": 0.36159460805356514
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "effect": "targeted_vs_original_with_evidence",
+      "control": "sft_with_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.476,
+      "treatment_score": 0.44,
+      "absolute_delta": -0.036,
+      "relative_error_reduction": -0.06870229007633587,
+      "improved": 7,
+      "regressed": 25,
+      "net_improvement": -18,
+      "paired_bootstrap_95_ci_low": -0.058,
+      "paired_bootstrap_95_ci_high": -0.014,
+      "mcnemar_exact_p_value": 0.0021024015732109547
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "evidence_effect_base",
+      "control": "baseline_no_evidence",
+      "treatment": "baseline_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.326,
+      "treatment_score": 0.558,
+      "absolute_delta": 0.232,
+      "relative_error_reduction": 0.3442136498516321,
+      "improved": 129,
+      "regressed": 13,
+      "net_improvement": 116,
+      "paired_bootstrap_95_ci_low": 0.19,
+      "paired_bootstrap_95_ci_high": 0.274,
+      "mcnemar_exact_p_value": 3.4647755616804067e-25
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "evidence_effect_original_sft",
+      "control": "sft_no_evidence",
+      "treatment": "sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.36,
+      "treatment_score": 0.562,
+      "absolute_delta": 0.202,
+      "relative_error_reduction": 0.315625,
+      "improved": 117,
+      "regressed": 16,
+      "net_improvement": 101,
+      "paired_bootstrap_95_ci_low": 0.16,
+      "paired_bootstrap_95_ci_high": 0.244,
+      "mcnemar_exact_p_value": 3.7982000367999554e-20
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "evidence_effect_targeted_sft",
+      "control": "targeted_sft_no_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.36,
+      "treatment_score": 0.554,
+      "absolute_delta": 0.194,
+      "relative_error_reduction": 0.303125,
+      "improved": 116,
+      "regressed": 19,
+      "net_improvement": 97,
+      "paired_bootstrap_95_ci_low": 0.152,
+      "paired_bootstrap_95_ci_high": 0.238,
+      "mcnemar_exact_p_value": 3.565468931422972e-18
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "original_sft_vs_base_no_evidence",
+      "control": "baseline_no_evidence",
+      "treatment": "sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.326,
+      "treatment_score": 0.36,
+      "absolute_delta": 0.034,
+      "relative_error_reduction": 0.05044510385756677,
+      "improved": 41,
+      "regressed": 24,
+      "net_improvement": 17,
+      "paired_bootstrap_95_ci_low": 0.004,
+      "paired_bootstrap_95_ci_high": 0.066,
+      "mcnemar_exact_p_value": 0.0463534743329112
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "original_sft_vs_base_with_evidence",
+      "control": "baseline_with_evidence",
+      "treatment": "sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.558,
+      "treatment_score": 0.562,
+      "absolute_delta": 0.004,
+      "relative_error_reduction": 0.00904977375565611,
+      "improved": 40,
+      "regressed": 38,
+      "net_improvement": 2,
+      "paired_bootstrap_95_ci_low": -0.03,
+      "paired_bootstrap_95_ci_high": 0.038,
+      "mcnemar_exact_p_value": 0.9099464518745242
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "targeted_sft_vs_base_no_evidence",
+      "control": "baseline_no_evidence",
+      "treatment": "targeted_sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.326,
+      "treatment_score": 0.36,
+      "absolute_delta": 0.034,
+      "relative_error_reduction": 0.05044510385756677,
+      "improved": 40,
+      "regressed": 23,
+      "net_improvement": 17,
+      "paired_bootstrap_95_ci_low": 0.004,
+      "paired_bootstrap_95_ci_high": 0.064,
+      "mcnemar_exact_p_value": 0.04295654552438921
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "targeted_sft_vs_base_with_evidence",
+      "control": "baseline_with_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.558,
+      "treatment_score": 0.554,
+      "absolute_delta": -0.004,
+      "relative_error_reduction": -0.00904977375565611,
+      "improved": 37,
+      "regressed": 39,
+      "net_improvement": -2,
+      "paired_bootstrap_95_ci_low": -0.038,
+      "paired_bootstrap_95_ci_high": 0.03,
+      "mcnemar_exact_p_value": 0.9087769252754927
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "targeted_vs_original_no_evidence",
+      "control": "sft_no_evidence",
+      "treatment": "targeted_sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.36,
+      "treatment_score": 0.36,
+      "absolute_delta": 0.0,
+      "relative_error_reduction": 0.0,
+      "improved": 14,
+      "regressed": 14,
+      "net_improvement": 0,
+      "paired_bootstrap_95_ci_low": -0.02,
+      "paired_bootstrap_95_ci_high": 0.02,
+      "mcnemar_exact_p_value": 1.0
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "effect": "targeted_vs_original_with_evidence",
+      "control": "sft_with_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.562,
+      "treatment_score": 0.554,
+      "absolute_delta": -0.008,
+      "relative_error_reduction": -0.018264840182648404,
+      "improved": 15,
+      "regressed": 19,
+      "net_improvement": -4,
+      "paired_bootstrap_95_ci_low": -0.03,
+      "paired_bootstrap_95_ci_high": 0.014,
+      "mcnemar_exact_p_value": 0.6075913612730801
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "evidence_effect_base",
+      "control": "baseline_no_evidence",
+      "treatment": "baseline_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.366,
+      "treatment_score": 0.608,
+      "absolute_delta": 0.242,
+      "relative_error_reduction": 0.3817034700315457,
+      "improved": 136,
+      "regressed": 15,
+      "net_improvement": 121,
+      "paired_bootstrap_95_ci_low": 0.198,
+      "paired_bootstrap_95_ci_high": 0.28604999999999925,
+      "mcnemar_exact_p_value": 1.4170755420622297e-25
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "evidence_effect_original_sft",
+      "control": "sft_no_evidence",
+      "treatment": "sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.398,
+      "treatment_score": 0.6,
+      "absolute_delta": 0.202,
+      "relative_error_reduction": 0.3355481727574751,
+      "improved": 113,
+      "regressed": 12,
+      "net_improvement": 101,
+      "paired_bootstrap_95_ci_low": 0.164,
+      "paired_bootstrap_95_ci_high": 0.242,
+      "mcnemar_exact_p_value": 9.245962500366385e-22
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "evidence_effect_targeted_sft",
+      "control": "targeted_sft_no_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.408,
+      "treatment_score": 0.596,
+      "absolute_delta": 0.188,
+      "relative_error_reduction": 0.31756756756756754,
+      "improved": 113,
+      "regressed": 19,
+      "net_improvement": 94,
+      "paired_bootstrap_95_ci_low": 0.146,
+      "paired_bootstrap_95_ci_high": 0.23,
+      "mcnemar_exact_p_value": 1.8119023428103597e-17
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "original_sft_vs_base_no_evidence",
+      "control": "baseline_no_evidence",
+      "treatment": "sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.366,
+      "treatment_score": 0.398,
+      "absolute_delta": 0.032,
+      "relative_error_reduction": 0.050473186119873815,
+      "improved": 33,
+      "regressed": 17,
+      "net_improvement": 16,
+      "paired_bootstrap_95_ci_low": 0.004,
+      "paired_bootstrap_95_ci_high": 0.06,
+      "mcnemar_exact_p_value": 0.032839137564268484
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "original_sft_vs_base_with_evidence",
+      "control": "baseline_with_evidence",
+      "treatment": "sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.608,
+      "treatment_score": 0.6,
+      "absolute_delta": -0.008,
+      "relative_error_reduction": -0.02040816326530612,
+      "improved": 36,
+      "regressed": 40,
+      "net_improvement": -4,
+      "paired_bootstrap_95_ci_low": -0.042,
+      "paired_bootstrap_95_ci_high": 0.026,
+      "mcnemar_exact_p_value": 0.7310088822226056
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "targeted_sft_vs_base_no_evidence",
+      "control": "baseline_no_evidence",
+      "treatment": "targeted_sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.366,
+      "treatment_score": 0.408,
+      "absolute_delta": 0.042,
+      "relative_error_reduction": 0.06624605678233439,
+      "improved": 37,
+      "regressed": 16,
+      "net_improvement": 21,
+      "paired_bootstrap_95_ci_low": 0.014,
+      "paired_bootstrap_95_ci_high": 0.07,
+      "mcnemar_exact_p_value": 0.005486344876760141
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "targeted_sft_vs_base_with_evidence",
+      "control": "baseline_with_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.608,
+      "treatment_score": 0.596,
+      "absolute_delta": -0.012,
+      "relative_error_reduction": -0.030612244897959183,
+      "improved": 31,
+      "regressed": 37,
+      "net_improvement": -6,
+      "paired_bootstrap_95_ci_low": -0.044,
+      "paired_bootstrap_95_ci_high": 0.02,
+      "mcnemar_exact_p_value": 0.5446122234192592
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "targeted_vs_original_no_evidence",
+      "control": "sft_no_evidence",
+      "treatment": "targeted_sft_no_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.398,
+      "treatment_score": 0.408,
+      "absolute_delta": 0.01,
+      "relative_error_reduction": 0.016611295681063124,
+      "improved": 16,
+      "regressed": 11,
+      "net_improvement": 5,
+      "paired_bootstrap_95_ci_low": -0.01,
+      "paired_bootstrap_95_ci_high": 0.03,
+      "mcnemar_exact_p_value": 0.44206833839416504
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "effect": "targeted_vs_original_with_evidence",
+      "control": "sft_with_evidence",
+      "treatment": "targeted_sft_with_evidence",
+      "evaluation_size": 500,
+      "control_score": 0.6,
+      "treatment_score": 0.596,
+      "absolute_delta": -0.004,
+      "relative_error_reduction": -0.01,
+      "improved": 13,
+      "regressed": 15,
+      "net_improvement": -2,
+      "paired_bootstrap_95_ci_low": -0.026,
+      "paired_bootstrap_95_ci_high": 0.016,
+      "mcnemar_exact_p_value": 0.8505540192127228
+    }
+  ],
+  "interactions": [
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "interaction": "original_sft_vs_base",
+      "interaction_delta": -0.028,
+      "paired_bootstrap_95_ci_low": -0.07,
+      "paired_bootstrap_95_ci_high": 0.014
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "interaction": "targeted_sft_vs_base",
+      "interaction_delta": -0.076,
+      "paired_bootstrap_95_ci_low": -0.12,
+      "paired_bootstrap_95_ci_high": -0.034
+    },
+    {
+      "metric": "EX@1",
+      "metric_column": "ex_at_1",
+      "interaction": "targeted_sft_vs_original_sft",
+      "interaction_delta": -0.048,
+      "paired_bootstrap_95_ci_low": -0.078,
+      "paired_bootstrap_95_ci_high": -0.02
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "interaction": "original_sft_vs_base",
+      "interaction_delta": -0.03,
+      "paired_bootstrap_95_ci_low": -0.072,
+      "paired_bootstrap_95_ci_high": 0.012
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "interaction": "targeted_sft_vs_base",
+      "interaction_delta": -0.038,
+      "paired_bootstrap_95_ci_low": -0.082,
+      "paired_bootstrap_95_ci_high": 0.006
+    },
+    {
+      "metric": "Oracle@3",
+      "metric_column": "oracle_at_3",
+      "interaction": "targeted_sft_vs_original_sft",
+      "interaction_delta": -0.008,
+      "paired_bootstrap_95_ci_low": -0.038,
+      "paired_bootstrap_95_ci_high": 0.022
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "interaction": "original_sft_vs_base",
+      "interaction_delta": -0.04,
+      "paired_bootstrap_95_ci_low": -0.082,
+      "paired_bootstrap_95_ci_high": 0.0
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "interaction": "targeted_sft_vs_base",
+      "interaction_delta": -0.054,
+      "paired_bootstrap_95_ci_low": -0.094,
+      "paired_bootstrap_95_ci_high": -0.014
+    },
+    {
+      "metric": "Oracle@5",
+      "metric_column": "oracle_at_5",
+      "interaction": "targeted_sft_vs_original_sft",
+      "interaction_delta": -0.014,
+      "paired_bootstrap_95_ci_low": -0.042,
+      "paired_bootstrap_95_ci_high": 0.014
+    }
+  ],
+  "primary_comparison": {
+    "control": "sft_with_evidence",
+    "treatment": "targeted_sft_with_evidence",
+    "improvements_ex_at_1": 7,
+    "regressions_ex_at_1": 25
+  },
+  "interpretation": {
+    "primary_deployable_metric": "EX@1 from greedy candidate 1",
+    "oracle_warning": "Oracle@K assumes a perfect selector and is an upper bound.",
+    "paired_delta_definition": "treatment score - control score",
+    "mcnemar_test": "exact two-sided binomial test on discordant paired outcomes",
+    "bootstrap_ci": "paired 10000-sample percentile bootstrap"
+  }
+}

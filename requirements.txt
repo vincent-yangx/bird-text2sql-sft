@@ -1,0 +1,14 @@
+torch
+transformers
+datasets
+trl
+peft
+accelerate
+pandas
+numpy
+scipy
+scikit-learn
+matplotlib
+seaborn
+openpyxl
+sqlglot

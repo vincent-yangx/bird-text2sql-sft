@@ -1,0 +1,5 @@
+Adjudication status,count,share_of_audit
+confirmed_model_error,97,0.8362068965517241
+prediction_more_correct_than_gold,13,0.11206896551724138
+both_prediction_and_gold_problematic,4,0.034482758620689655
+prediction_semantically_equivalent,2,0.017241379310344827

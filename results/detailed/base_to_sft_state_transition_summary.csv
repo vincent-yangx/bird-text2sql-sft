@@ -1,0 +1,10 @@
+pair_condition,state_transition,count
+with_evidence,correct -> correct,205
+with_evidence,correct -> invalid_sql,7
+with_evidence,correct -> valid_wrong,40
+with_evidence,invalid_sql -> correct,7
+with_evidence,invalid_sql -> invalid_sql,23
+with_evidence,invalid_sql -> valid_wrong,23
+with_evidence,valid_wrong -> correct,26
+with_evidence,valid_wrong -> invalid_sql,15
+with_evidence,valid_wrong -> valid_wrong,154
