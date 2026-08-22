@@ -1,0 +1,203 @@
+{
+  "analysis_definition": {
+    "candidate_rank": 1,
+    "conditions": [
+      "baseline_with_evidence",
+      "sft_with_evidence"
+    ],
+    "classifier_version": "3.0-gold-aware",
+    "structural_engine": "sqlglot AST-difference rules v2.0",
+    "gold_aware_rule": "Audited model errors receive final human modes; audited semantic-equivalent, prediction-better-than-Gold, and ambiguous rows are excluded; unaudited rows are provisional.",
+    "audit_warning": "The stratified audit is not a population-random accuracy sample."
+  },
+  "input": {
+    "selected_results_directory": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_ex1_oracle3_oracle5_four_way",
+    "result_files": [
+      "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_ex1_oracle3_oracle5_four_way/baseline_with_evidence_minidev500_results.csv",
+      "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_ex1_oracle3_oracle5_four_way/sft_with_evidence_minidev500_results.csv"
+    ],
+    "adjudication_file": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v2/failure_mode_manual_audit_final_adjudication.xlsx",
+    "adjudication_sha256": "b47df63550db689c30780e13a4f24f6b7d88d934e8371f78b5f887c3e49a4845",
+    "result_sha256": {
+      "baseline_with_evidence_minidev500_results.csv": "8cb95b1d055a5e370862ee3255016e733d5eb09f479ef1e5db4ddfbe4f3eeca6",
+      "sft_with_evidence_minidev500_results.csv": "6cc9c0c53044146c219fecec7cb5f0c97de8c0bb1ee7771715ef65d452d2aabd"
+    },
+    "total_result_rows": 1000,
+    "audit_rows": 116
+  },
+  "audit_counts": {
+    "model_error_rows": 101,
+    "known_non_model_rows": 15,
+    "pending_rows": 0
+  },
+  "deployment": {
+    "classifier_version": "3.0-gold-aware",
+    "v2_structural_version": "2.0",
+    "deploy_reranker": true,
+    "deployment_name": "v3_candidate_reranker",
+    "selected_alpha": 2.0,
+    "selected_primary_bonus": 0.1,
+    "minimum_deploy_gain": 0.01,
+    "trigger_reliability": {
+      "ast_parse_failure": 0.0,
+      "other_structural_mismatch": 0.0,
+      "wrong_aggregation": 0.18785825951016155,
+      "wrong_arithmetic_or_cast": 0.45544554455445546,
+      "wrong_column_or_table_provenance": 0.17491749174917492,
+      "wrong_distinct_or_set_semantics": 0.06497524752475248,
+      "wrong_filter_condition": 0.2176594708651193,
+      "wrong_filter_value_or_operator": 0.09843869002284844,
+      "wrong_grouping_or_having": 0.15297029702970297,
+      "wrong_join_or_relationship": 0.10622937293729373,
+      "wrong_null_date_or_string_logic": 0.24633663366336633,
+      "wrong_ordering_or_topk": 0.19611576542269613,
+      "wrong_projection": 0.29306930693069305,
+      "wrong_subquery_or_cte": 0.0,
+      "wrong_table_or_schema_linking": 0.6701555869872701
+    },
+    "validation": {
+      "v2": {
+        "classifier": "v2_structural_primary",
+        "rows": 101,
+        "accuracy": 0.5148514851485149,
+        "balanced_accuracy": 0.4374084249084249,
+        "macro_f1": 0.41046877958642664,
+        "weighted_f1": 0.49779242630145365
+      },
+      "candidate": {
+        "classifier": "best_candidate_reranker_cv",
+        "rows": 101,
+        "accuracy": 0.5247524752475248,
+        "balanced_accuracy": 0.4274496336996337,
+        "macro_f1": 0.42059948598410135,
+        "weighted_f1": 0.513036523432563
+      },
+      "deployed": {
+        "classifier": "v3_candidate_reranker",
+        "rows": 101,
+        "accuracy": 0.5247524752475248,
+        "balanced_accuracy": 0.4274496336996337,
+        "macro_f1": 0.42059948598410135,
+        "weighted_f1": 0.513036523432563
+      },
+      "accuracy_delta": 0.00990099009900991,
+      "macro_f1_delta": 0.010130706397674716,
+      "candidate_recall": 0.8712871287128713
+    }
+  },
+  "full_analysis_counts": {
+    "raw_valid_wrong_rows": 412,
+    "eligible_confirmed_or_provisional_failure_rows": 397,
+    "known_non_model_rows_excluded": 15,
+    "sft_improvements": 33,
+    "sft_regressions": 47
+  },
+  "top_failure_modes_by_condition": [
+    {
+      "experiment": "baseline_with_evidence",
+      "primary_failure_mode": "wrong_table_or_schema_linking",
+      "count": 60,
+      "share_of_eligible_failures": 0.32608695652173914
+    },
+    {
+      "experiment": "baseline_with_evidence",
+      "primary_failure_mode": "wrong_projection",
+      "count": 31,
+      "share_of_eligible_failures": 0.16847826086956522
+    },
+    {
+      "experiment": "baseline_with_evidence",
+      "primary_failure_mode": "wrong_arithmetic_or_cast",
+      "count": 27,
+      "share_of_eligible_failures": 0.14673913043478262
+    },
+    {
+      "experiment": "baseline_with_evidence",
+      "primary_failure_mode": "wrong_null_date_or_string_logic",
+      "count": 19,
+      "share_of_eligible_failures": 0.10326086956521739
+    },
+    {
+      "experiment": "baseline_with_evidence",
+      "primary_failure_mode": "wrong_filter_condition",
+      "count": 18,
+      "share_of_eligible_failures": 0.09782608695652174
+    },
+    {
+      "experiment": "sft_with_evidence",
+      "primary_failure_mode": "wrong_table_or_schema_linking",
+      "count": 75,
+      "share_of_eligible_failures": 0.352112676056338
+    },
+    {
+      "experiment": "sft_with_evidence",
+      "primary_failure_mode": "wrong_projection",
+      "count": 33,
+      "share_of_eligible_failures": 0.15492957746478872
+    },
+    {
+      "experiment": "sft_with_evidence",
+      "primary_failure_mode": "wrong_filter_condition",
+      "count": 25,
+      "share_of_eligible_failures": 0.11737089201877934
+    },
+    {
+      "experiment": "sft_with_evidence",
+      "primary_failure_mode": "wrong_arithmetic_or_cast",
+      "count": 24,
+      "share_of_eligible_failures": 0.11267605633802817
+    },
+    {
+      "experiment": "sft_with_evidence",
+      "primary_failure_mode": "wrong_null_date_or_string_logic",
+      "count": 21,
+      "share_of_eligible_failures": 0.09859154929577464
+    }
+  ],
+  "taxonomy": {
+    "wrong_table_or_schema_linking": "Wrong table / schema linking",
+    "wrong_join_or_relationship": "Wrong join / relationship",
+    "wrong_aggregation": "Wrong aggregation",
+    "wrong_grouping_or_having": "Wrong grouping / HAVING",
+    "wrong_filter_condition": "Wrong or missing filter condition",
+    "wrong_filter_value_or_operator": "Wrong filter value / operator",
+    "wrong_projection": "Wrong projection",
+    "wrong_distinct_or_set_semantics": "Wrong DISTINCT / set semantics",
+    "wrong_ordering_or_topk": "Wrong ordering / Top-K",
+    "wrong_subquery_or_cte": "Wrong subquery / CTE",
+    "wrong_arithmetic_or_cast": "Wrong arithmetic / cast / rounding",
+    "wrong_null_date_or_string_logic": "Wrong NULL / date / string / window logic",
+    "other_structural_mismatch": "Other structural mismatch",
+    "ast_parse_failure": "AST parse failure",
+    "wrong_column_or_table_provenance": "Wrong column / table provenance"
+  },
+  "software_versions": {
+    "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+    "pandas": "2.2.2",
+    "numpy": "2.0.2",
+    "sqlglot": "25.20.2",
+    "scikit_learn": "1.6.1"
+  },
+  "outputs": {
+    "valid_wrong_labeled_v3": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/valid_wrong_labeled_cases_v3.csv",
+    "known_non_model_cases": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/known_non_model_execution_mismatches.csv",
+    "adjudication_normalized": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/final_adjudication_normalized.csv",
+    "adjudication_status_summary": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/adjudication_status_summary.csv",
+    "audit_failure_mode_summary": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/audited_failure_mode_summary.csv",
+    "classifier_validation_rows": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/classifier_v3_validation_rows.csv",
+    "classifier_validation_summary": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/classifier_v3_validation_summary.csv",
+    "classifier_per_class": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/classifier_v3_per_class_metrics.csv",
+    "classifier_confusion_matrix": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/classifier_v3_confusion_matrix.csv",
+    "calibration_grid": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/classifier_v3_calibration_grid.csv",
+    "state_summary": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/result_state_summary.csv",
+    "failure_mode_summary": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/failure_mode_summary_v3.csv",
+    "failure_by_difficulty": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/failure_mode_by_difficulty_v3.csv",
+    "failure_by_database": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/failure_mode_by_database_v3.csv",
+    "paired_base_sft": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/paired_base_sft_cases_v3.csv",
+    "model_effect_summary": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/base_vs_sft_model_effect_summary.csv",
+    "state_transition_summary": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/base_to_sft_state_transition_summary.csv",
+    "failure_transition_summary": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/base_to_sft_failure_mode_transitions_v3.csv",
+    "sft_improvements": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/sft_improvements.csv",
+    "sft_regressions": "/content/drive/MyDrive/bird-text2sql-sft/results/minidev500_failure_mode_analysis_with_evidence_v3/sft_regressions.csv"
+  }
+}

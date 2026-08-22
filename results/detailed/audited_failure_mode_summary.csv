@@ -1,0 +1,24 @@
+experiment,model_type,primary_failure_mode,count,primary_failure_label
+baseline_with_evidence,baseline,wrong_aggregation,4,Wrong aggregation
+baseline_with_evidence,baseline,wrong_arithmetic_or_cast,5,Wrong arithmetic / cast / rounding
+baseline_with_evidence,baseline,wrong_column_or_table_provenance,2,Wrong column / table provenance
+baseline_with_evidence,baseline,wrong_distinct_or_set_semantics,2,Wrong DISTINCT / set semantics
+baseline_with_evidence,baseline,wrong_filter_condition,5,Wrong or missing filter condition
+baseline_with_evidence,baseline,wrong_filter_value_or_operator,2,Wrong filter value / operator
+baseline_with_evidence,baseline,wrong_grouping_or_having,2,Wrong grouping / HAVING
+baseline_with_evidence,baseline,wrong_join_or_relationship,2,Wrong join / relationship
+baseline_with_evidence,baseline,wrong_null_date_or_string_logic,3,Wrong NULL / date / string / window logic
+baseline_with_evidence,baseline,wrong_ordering_or_topk,2,Wrong ordering / Top-K
+baseline_with_evidence,baseline,wrong_projection,6,Wrong projection
+baseline_with_evidence,baseline,wrong_table_or_schema_linking,10,Wrong table / schema linking
+sft_with_evidence,sft,wrong_aggregation,3,Wrong aggregation
+sft_with_evidence,sft,wrong_arithmetic_or_cast,5,Wrong arithmetic / cast / rounding
+sft_with_evidence,sft,wrong_column_or_table_provenance,3,Wrong column / table provenance
+sft_with_evidence,sft,wrong_filter_condition,9,Wrong or missing filter condition
+sft_with_evidence,sft,wrong_filter_value_or_operator,4,Wrong filter value / operator
+sft_with_evidence,sft,wrong_grouping_or_having,1,Wrong grouping / HAVING
+sft_with_evidence,sft,wrong_join_or_relationship,3,Wrong join / relationship
+sft_with_evidence,sft,wrong_null_date_or_string_logic,5,Wrong NULL / date / string / window logic
+sft_with_evidence,sft,wrong_ordering_or_topk,3,Wrong ordering / Top-K
+sft_with_evidence,sft,wrong_projection,7,Wrong projection
+sft_with_evidence,sft,wrong_table_or_schema_linking,13,Wrong table / schema linking

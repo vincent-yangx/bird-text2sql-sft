@@ -14,12 +14,21 @@
   "compute_dtype": "torch.bfloat16",
   "max_input_tokens": 8192,
   "max_new_tokens": 256,
-  "do_sample": false,
-  "temperature": null,
-  "top_p": null,
+  "num_candidates": 5,
+  "oracle_k_values": [
+    1,
+    3,
+    5
+  ],
+  "candidate_1_decoding": "greedy",
+  "sampled_candidate_count": 4,
+  "sampled_candidates_decoding": "multinomial_sampling",
+  "sampling_temperature": 0.7,
+  "sampling_top_p": 0.95,
+  "sample_seed_rule": "SEED + position",
   "seed": 42,
   "sql_timeout_seconds": 30.0,
   "debug_limit": null,
   "official_ex_semantics": "set(predicted_rows) == set(gold_rows)",
-  "fingerprint": "ceb9f949f0f61098152cc142cd7d1a440223e91b84362d0acb1a54fb717ce3ce"
+  "fingerprint": "a3e2e063dafdfce0487d59327bc600949a1854f25d517c02147e864b31c33c0a"
 }

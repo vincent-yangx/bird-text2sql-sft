@@ -1,0 +1,7 @@
+selection_role,complexity_bucket,prompt_count
+general_replay,challenging,106
+general_replay,moderate,773
+general_replay,simple,1160
+targeted,challenging,867
+targeted,moderate,2207
+targeted,simple,712

@@ -1,20 +1,23 @@
 {
-  "experiment_label": "sft_with_evidence",
-  "model_type": "sft",
+  "experiment_label": "targeted_sft_no_evidence",
+  "model_type": "targeted_sft",
   "base_model_id": "Qwen/Qwen2.5-Coder-7B-Instruct",
   "adapter": {
-    "path": "/content/drive/MyDrive/bird-text2sql-sft/training/qwen2.5-coder-7b-bf16-lora-sft-v2-filtered-mixed-evidence-lr2e-5-len8192/final_adapter",
+    "path": "/content/drive/MyDrive/bird-text2sql-sft/training/qwen2.5-coder-7b-bf16-lora-targeted-sft-v1-lr2e-5-len8192/final_adapter",
     "files": [
       {
         "name": "adapter_config.json",
         "size": 1163,
-        "sha256": "bd5256460621dc3ef90229183720c24305682e3c3775399f01e087c43261e7d4"
+        "sha256": "0649cd20dc96a9d7bbc539653f334901f6799c7756ef081151c38755406a0ede"
       },
       {
         "name": "adapter_model.safetensors",
-        "size": 161533192
+        "size": 161533192,
+        "sha256": "5bb52a3e5dda915904847f88a8a1a64cd79309d3009f7324c9eb1c028019a205"
       }
-    ]
+    ],
+    "selected_checkpoint_step": 600,
+    "selected_checkpoint_macro_ex": 0.59
   },
   "dataset_id": "birdsql/bird_mini_dev",
   "dataset_revision": "f65faf4ae3b638c1fa6df1d3370c8d92c8366301",
@@ -22,7 +25,7 @@
   "dataset_sha256": "c38826f6825c30bd2d3916f30dab8f259e149bf9ca8d2d0bb454d8493105b52c",
   "prompt_version": "bird_schema_evidence_ablation_chat_v2",
   "system_prompt": "You are an expert SQLite developer. Given a database schema, a question, and optional evidence, write one valid SQLite query that answers the question. Return only the SQL query without explanations or Markdown.",
-  "use_evidence": true,
+  "use_evidence": false,
   "load_in_4bit": false,
   "compute_dtype": "torch.bfloat16",
   "max_input_tokens": 8192,
@@ -43,5 +46,5 @@
   "sql_timeout_seconds": 30.0,
   "debug_limit": null,
   "official_ex_semantics": "set(predicted_rows) == set(gold_rows)",
-  "fingerprint": "3e8d7c55ce9d3cbc6aa026d55ad28fa6e42eb28ba69e7e685d7a6e2abd75277c"
+  "fingerprint": "943f9f3e1c491c4114fe8977490da427b2dc3521ad830b4492d1a405995e471f"
 }
